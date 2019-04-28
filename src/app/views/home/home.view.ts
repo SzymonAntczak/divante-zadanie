@@ -6,6 +6,53 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.view.scss']
 })
 export class HomeView implements OnInit {
+  products = [
+    {
+      id: '/dupa',
+      title: 'Title',
+      description: 'Descriptions',
+      image: {
+        src: 'assets/images/maxresdefault.jpg',
+        alt: 'alt'
+      }
+    },
+    {
+      id: '/dupa',
+      title: 'Title',
+      description: 'Descriptions',
+      image: {
+        src: 'assets/images/maxresdefault.jpg',
+        alt: 'alt'
+      }
+    },
+    {
+      id: '/dupa',
+      title: 'Title',
+      description: 'Descriptions',
+      image: {
+        src: 'assets/images/maxresdefault.jpg',
+        alt: 'alt'
+      }
+    },
+    {
+      id: '/dupa',
+      title: 'Title',
+      description: 'Descriptions',
+      image: {
+        src: 'assets/images/maxresdefault.jpg',
+        alt: 'alt'
+      }
+    },
+    {
+      id: '/dupa',
+      title: 'Title',
+      description: 'Descriptions',
+      image: {
+        src: 'assets/images/maxresdefault.jpg',
+        alt: 'alt'
+      }
+    }
+  ]
 
   constructor() { }
 

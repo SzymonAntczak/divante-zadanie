@@ -1,0 +1,70 @@
+@import '../../../styles/lib';
+
+:host {
+  .grid-main-content {
+    grid-template-columns: 0 1fr 72px;
+
+    .container {
+      #products {
+        display: grid;
+        width: 100%;
+        grid-gap: 20px;
+        grid-template-columns: repeat(4, 1fr);
+
+        .product-item {
+          background: color(white);
+          box-shadow: 5px 5px 10px 0px transparent;
+          transition: $time-fastest box-shadow;
+
+          &:hover {
+            border-radius: 5px;
+            box-shadow: 5px 5px 10px 0px color(gray, 1);
+            text-decoration: none;
+
+            .img-wrapper img { transform: scale(1.05); }
+            .descrpition-box .show-more-btn { transform: translate(0, -50%) scale(1); }
+          }
+
+          .img-wrapper {
+            @include size(100%, 260px);
+            overflow: hidden;
+
+            img {
+              @include size(100%);
+              object-fit: cover;
+              transition: $time-fast ease-out transform;
+            }
+          }
+
+          .descrpition-box {
+            padding: 20px 60px 20px 20px;
+            position: relative;
+
+            .title {
+              font-weight: font-weight(bold);
+              color: color(gray, 3);
+              margin-bottom: 10px;
+            }
+
+            .description { color: color(gray, 2); }
+
+            .show-more-btn {
+              position: absolute;
+              top: 50%;
+              right: 20px;
+              transform: translate(-15px, -50%) scale(0);
+              transition: $time-fastest transform;
+
+              .icon ::ng-deep {
+                svg {
+                  @include size(20px);
+                  path { fill: color(blue); }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
