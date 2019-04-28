@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ViewsRoutingModule, RoutableLayoutsModule } from './views-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { HomeModule } from './home/home.module';
+import { AboutModule } from './about/about.module';
 
 @NgModule({
   imports: [
@@ -11,7 +12,8 @@ import { HomeModule } from './home/home.module';
     SharedModule,
     ViewsRoutingModule,
     RoutableLayoutsModule,
-    HomeModule
+    HomeModule,
+    AboutModule
   ],
   declarations: []
 })

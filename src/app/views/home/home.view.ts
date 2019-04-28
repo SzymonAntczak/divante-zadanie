@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class HomeView implements OnInit {
   products = [
     {
-      id: '/dupa',
+      id: 'dupa',
       title: 'Title',
       description: 'Descriptions',
       image: {
@@ -17,7 +17,7 @@ export class HomeView implements OnInit {
       }
     },
     {
-      id: '/dupa',
+      id: 'dupa',
       title: 'Title',
       description: 'Descriptions',
       image: {
@@ -26,7 +26,7 @@ export class HomeView implements OnInit {
       }
     },
     {
-      id: '/dupa',
+      id: 'dupa',
       title: 'Title',
       description: 'Descriptions',
       image: {
@@ -35,7 +35,7 @@ export class HomeView implements OnInit {
       }
     },
     {
-      id: '/dupa',
+      id: 'dupa',
       title: 'Title',
       description: 'Descriptions',
       image: {
@@ -44,7 +44,7 @@ export class HomeView implements OnInit {
       }
     },
     {
-      id: '/dupa',
+      id: 'dupa',
       title: 'Title',
       description: 'Descriptions',
       image: {
