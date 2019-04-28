@@ -2,7 +2,7 @@
 
 p, ul li {
   @include rwd-font-size(body-1);
-  color: inherit;
+  color: color(gray, 3);
 }
 
 a {

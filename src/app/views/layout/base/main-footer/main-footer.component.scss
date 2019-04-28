@@ -1,0 +1,13 @@
+@import '../../../../../styles/lib';
+
+:host {
+  display: block;
+  background: color(blue);
+  padding: 25px 0;
+
+  .container {
+    @include flex(null, flex-end);
+
+    span { color: color(white); }
+  }
+}

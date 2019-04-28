@@ -3,16 +3,22 @@
 $navbar-height: 72px;
 
 :host {
-  border-bottom: 1px solid color(white, 3);
+  border-bottom: 1px solid color(gray);
   position: relative;
 
   .grid-main-content {
     z-index: z-index(navbar);
-    background: white;
+    background: color(white, 2);
     position: relative;
 
     .container {
       @include flex(null, null, center);
+
+      .logo a {
+        color: color(gray, 2);
+        font-size: make-rem(20);
+        text-decoration: none;
+      }
 
       .menu {
         flex: 1;
@@ -29,6 +35,8 @@ $navbar-height: 72px;
               display: block;
               text-decoration: none;
               position: relative;
+              font-weight: font-weight(bold);
+              color: color(gray, 3);
 
               &::after {
                 content: "";
@@ -42,7 +50,6 @@ $navbar-height: 72px;
               }
 
               &:hover,
-              &:focus,
               &.link-active {
                 &::after { transform: translateX(-50%) scale(1); }
               }
@@ -61,7 +68,10 @@ $navbar-height: 72px;
         @include size($navbar-height);
 
         .icon ::ng-deep {
-          svg { @include svg-deep(15px, 15px, black); }
+          svg {
+            @include svg-deep(15px, 15px, gray, 3);
+            line, circle { stroke: color(gray, 3); }
+          }
         }
       }
     }
@@ -77,7 +87,8 @@ $navbar-height: 72px;
       padding: 4px 15px;
       @include size(200px, auto);
       border: none;
-      border: 1px solid color(white, 3);
+      border: 1px solid color(gray);
+      color: color(gray, 3);
       @include font(caption-1);
     }
 

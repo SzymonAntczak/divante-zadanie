@@ -1,9 +1,11 @@
 @import '../../../../styles/lib';
 
 :host {
+  background: color(white, 2);
   display: grid;
   width: 100%;
-  grid-gap: 20px;
+  grid-row-gap: $desktop-section-gap;
+  grid-column-gap: 20px;
   overflow-x: hidden;
   grid-template-columns: auto 1fr;
   grid-template-rows: auto 1fr auto;
