@@ -1,0 +1,48 @@
+//  Nadanie styli dla wesji destop, nadanej w pliku _vars.scss
+@mixin desktop() {
+  @media (max-width: map-get($breakpoints, desktop-devices)) {
+    @content;
+  }
+}
+
+//  Nadanie styli dla wesji laptop, nadanej w pliku _vars.scss
+@mixin laptop() {
+  @media (max-width: map-get($breakpoints, laptop-devices)) {
+    @content;
+  }
+}
+
+//  Nadanie styli dla wesji mały laptop, nadanej w pliku _vars.scss
+@mixin laptop-small() {
+  @media (max-width: map-get($breakpoints, laptop-small-devices)) {
+    @content;
+  }
+}
+
+//  Nadanie styli dla wesji tablet, nadanej w pliku _vars.scss
+@mixin tablet() {
+  @media (max-width: map-get($breakpoints, tablet-devices)) {
+    @content;
+  }
+}
+
+//  Nadanie styli dla wesji mały tablet, nadanej w pliku _vars.scss
+@mixin tablet-small() {
+  @media (max-width: map-get($breakpoints, tablet-small-devices)) {
+    @content;
+  }
+}
+
+//  Nadanie styli dla wesji telefon, nadanej w pliku _vars.scss
+@mixin phone() {
+  @media (max-width: map-get($breakpoints, phone-devices)) {
+    @content;
+  }
+}
+
+//  Nadanie styli dla wesji mały telefon, nadanej w pliku _vars.scss
+@mixin phone-small() {
+  @media (max-width: map-get($breakpoints, phone-small-devices)) {
+    @content;
+  }
+}

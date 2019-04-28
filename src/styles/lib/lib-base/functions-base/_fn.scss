@@ -1,0 +1,62 @@
+// Usunięcie jednostki z wartości
+@function strip-unit($value) {
+  @return ($value / ($value * 0 + 1));
+}
+
+// Przeliczenie na wartość rem w stosunku do głównej jednostki
+@function make-rem($size) {
+  $root: strip-unit($root-font-size);
+  $size: strip-unit($size);
+
+  @return $size / $root + rem;
+}
+
+// Zwraca odpowiednią wartość koloru z tablicy $color-stact, jej odcień, oraz stopień krycia
+@function color($color-id, $color-tone: 1, $opacity: 1) {
+  @if $color-id == inherit {
+    @return inherit;
+  }
+
+	$tones-map: map-get($colors-stack, $color-id);
+
+	@if $tones-map == null {
+		@error "Color `#{$color-id}` doesn't exist in $colors-stack.";
+	}
+
+	@return if($opacity == 1, nth($tones-map, $color-tone), rgba(nth($tones-map, $color-tone), $opacity));
+}
+
+// Zwraca grubość fonta z zalezności od zdeklarowanych wartości w $font-weight
+@function font-weight($weight) {
+  $weight-map: map-get($font-weight, $weight);
+
+	@if $weight-map == null {
+		@error "Weight `#{$color-id}` doesn't exist";
+  }
+
+  @return $weight-map;
+}
+
+// Przelicza wartość line-height w em względem wielkości czcionki
+@function line-height($line-height, $font-size) {
+  $font-size: strip-unit($font-size);
+  $root-size: strip-unit($root-font-size);
+
+  @return $line-height / $font-size + em;
+}
+
+// Przelicza letter-spacing na wartość px względem wielkości czcionki
+@function letter-spacing($photoshop-value, $font-size) {
+  @return ($photoshop-value * $font-size) / 1000 + px;
+}
+
+// Pobiera wartość z-index z tablicy $z-index-areas
+@function z-index($area) {
+  $z-index: map-get($z-index-areas, $area);
+
+	@if $z-index == null {
+		@error "Area `#{$area}` doesn't exist";
+  }
+
+  @return $z-index;
+}

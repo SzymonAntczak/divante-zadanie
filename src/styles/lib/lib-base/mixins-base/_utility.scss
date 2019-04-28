@@ -1,0 +1,67 @@
+// Ustawienie wielkości elementu
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+// Nadanie koloru elementowi SVG
+@mixin svg-fill($color, $color-tone: 1, $shape: path) {
+	#{$shape} {
+		fill: color($color, $color-tone) !important;
+	}
+}
+
+// Nadanie koloru elementowi SVG z ng-deep
+@mixin svg-fill-deep($color, $color-tone: 1, $shape: path) {
+  &::ng-deep { @include svg-fill($color, $color-tone, $shape) }
+}
+
+// Ostylowanie elementu SVG (wielkośc i kolor)
+@mixin svg($wight, $height, $color, $tone: 1, $shape: path) {
+  @include size($wight, $height);
+  @include svg-fill($color, $tone, $shape);
+}
+
+// Ostylowanie elementu SVG osadzone w ng-deep (wielkośc i kolor)
+@mixin svg-deep($wight, $height, $color, $tone: 1, $shape: path) {
+  &::ng-deep { @include svg($wight, $height, $color, $tone, $shape) }
+}
+
+// Wycentrowanie elementu
+@mixin center() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// Ustawienie elementu jako flex
+@mixin flex($fd: row, $jc: flex-start, $ai: center) {
+  display: flex;
+  flex-direction: $fd;
+  justify-content: $jc;
+  align-items: $ai;
+}
+
+// Wyśrodkowanie elementu
+@mixin margin-center() {
+  margin: {
+    left: auto;
+    right: auto;
+  }
+}
+
+// Ostylowanie input placeholder
+@mixin input-placeholder() {
+  &.placeholder { @content; }
+  &:-moz-placeholder { @content; }
+  &::-moz-placeholder { @content; }
+  &:-ms-input-placeholder { @content; }
+  &::-webkit-input-placeholder { @content; }
+}
+
+// Ukrycie elementu
+@mixin hidden() {
+  display: none !important;
+  visibility: hidden !important;
+}

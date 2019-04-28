@@ -1,0 +1,81 @@
+$root-font-size: 16px;
+$root-font-family: 'Lato', sans-serif;
+$second-font-family: 'Roboto', 'sans-serif';
+
+$font-weight: (
+  regular: 400,
+  medium: 500,
+  bold: 700,
+  black: 900
+);
+
+$colors-stack: (
+	black:  (#000000),
+  white:  (#ffffff, #FAFAFA, #F5F5F5),
+  gray:   (#D6D6D6, #858585, #424242),
+  blue:   (#155BCC, #164FAC),
+  green:  (#2FDA7F)
+);
+$txt-colors-stack: (black, white, gray, blue, green);
+
+$notification-colors-stack: (
+	success:  (#74B574, #5A8D5A),
+  info:     (#13a8ce),
+  warning:  (#EB9F34, #C2852E),
+  error:    (#F4282D, #B72327)
+);
+$txt-notification-colors-stack: (success, info, warning, error);
+
+$typography-default-stack: (
+//name: (           size,   weight,   line-height,  color: inherit,  tone: 1,    letterspacing: 0, text-transform: none)
+  hero: (              36,    medium,     49,           inherit,          1,         0,               none),
+  headline-1: (        24,    medium,     33,           inherit,          1,         0,               none),
+  headline-2: (        24,    bold,       33,           inherit,          1,         0,               none),
+  headline-3: (        24,    regular,    33,           inherit,          1,         0,               none),
+  title-1: (           18,    medium,     24,           inherit,          1,         0,               none),
+  title-2: (           18,    regular,    24,           inherit,          1,         0,               none),
+  subtitle: (          16,    medium,     22,           inherit,          1,         0,               none),
+  body-1: (            15,    regular,    22,           inherit,          1,         0,               none),
+  body-2: (            15,    medium,     22,           inherit,          1,         0,               none),
+  body-3: (            15,    bold,       22,           inherit,          1,         0,               none),
+  caption-1: (         13,    medium,     21,           inherit,          1,         0,               none),
+  caption-2: (         13,    regular,    21,           inherit,          1,         0,               none),
+  caption-3: (         12,    medium,     17,           inherit,          1,         0,               none),
+  caption-4: (         12,    regular,    17,           inherit,          1,         0,               none),
+  overline:  (         11,    medium,     15,           inherit,          1,         0,               none)
+);
+
+$txt-typography-stack: (hero, headline-1, headline-2, headline-3, title-1, title-2, subtitle, body-1, body-2, body-3, caption-1, caption-2, caption-3, caption-4, overline);
+
+$breakpoints: (
+  desktop-devices: 1800px,
+  laptop-devices: 1366px,
+  laptop-small-devices: 1280px,
+  tablet-devices: 1024px,
+  tablet-small-devices: 768px,
+  phone-devices: 500px,
+  phone-small-devices: 320px
+);
+
+$rwd-typography: (
+  default: $typography-default-stack
+);
+
+$z-index-areas: (
+  workspace: 1,
+  workspace-cover: 5,
+  workspace-overlay: 35,
+  navbar: 50,
+  navbar-cover: 55,
+  topLayer: 99999
+);
+
+$time-fastest: 0.3s;
+$time-fast: 0.5s;
+$time-normal: 1s;
+$time-slow: 2s;
+$time-slowest: 3s;
+
+$desktop-section-gap: 72px;
+$tablet-section-gap: 32px;
+$mobile-section-gap: 16px;

@@ -1,0 +1,44 @@
+@import '../lib';
+
+html { font-size: $root-font-size; }
+
+body {
+  background: #fff;
+  font-family: $root-font-family;
+  @include font(body-1);
+}
+
+*,
+*:before,
+*:after { box-sizing: border-box; }
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+img,
+video,
+object,
+embed {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  border: none;
+
+  &:visited { color:inherit }
+}
+
+:focus { outline: none; }
+.hidden { @include hidden(); }
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-justify { text-align: justify; }
+.margin-center { @include margin-center(); }
+.disabled { pointer-events: none; }
+
