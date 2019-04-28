@@ -1,0 +1,88 @@
+@import '../../../../../styles/lib';
+
+$navbar-height: 72px;
+
+:host {
+  border-bottom: 1px solid color(white, 3);
+  position: relative;
+
+  .grid-main-content {
+    z-index: z-index(navbar);
+    background: white;
+    position: relative;
+
+    .container {
+      @include flex(null, null, center);
+
+      .menu {
+        flex: 1;
+        @include flex(null, flex-end);
+
+        ul {
+          @include flex();
+
+          li {
+            margin: 0 5px;
+
+            a {
+              padding: 25px 15px;
+              display: block;
+              text-decoration: none;
+              position: relative;
+
+              &::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                @include size(100%, 2px);
+                transform: translateX(-50%) scale(0);
+                background: color(blue);
+                transition: $time-fastest transform;
+              }
+
+              &:hover,
+              &:focus,
+              &.link-active {
+                &::after { transform: translateX(-50%) scale(1); }
+              }
+            }
+          }
+        }
+      }
+
+      .search-btn {
+        margin-left: 25px;
+        padding: 0;
+        background: color(white, 3);
+        border: none;
+        outline: none;
+        @include flex(null, center, center);
+        @include size($navbar-height);
+
+        .icon ::ng-deep {
+          svg { @include svg-deep(15px, 15px, black); }
+        }
+      }
+    }
+  }
+
+  .search-input {
+    position: absolute;
+    right: $desktop-section-gap;
+    bottom: 0;
+    transition: $time-fastest transform;
+
+    input {
+      padding: 4px 15px;
+      @include size(200px, auto);
+      border: none;
+      border: 1px solid color(white, 3);
+      @include font(caption-1);
+    }
+
+    &.active { transform: translateY(100%); }
+  }
+}
+
+

@@ -1,0 +1,25 @@
+@import '../../../../styles/lib';
+
+:host {
+  display: grid;
+  width: 100%;
+  grid-gap: 20px;
+  overflow-x: hidden;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "main-navbar main-navbar"
+    "sidebar-cart router-outlet"
+    "main-footer main-footer"
+  ;
+
+  dvt-main-navbar { grid-area: main-navbar; }
+  dvt-sidebar-cart { grid-area: sidebar-cart; }
+
+  .layout-content {
+    min-height: 100vh;
+    grid-area: router-outlet;
+  }
+
+  dvt-main-footer { grid-area: main-footer; }
+}

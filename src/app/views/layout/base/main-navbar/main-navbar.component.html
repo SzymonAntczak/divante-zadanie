@@ -1,3 +1,25 @@
-<p>
-  main-header works!
-</p>
+<section class="grid-main-content">
+  <div class="container">
+
+    <div class="logo">
+      <a [routerLink]="'/'">LOGO</a>
+    </div>
+
+    <div class="menu">
+      <ul *ngIf="menuItems$">
+        <li *ngFor="let item of menuItems$ | async">
+          <a [routerLink]="item.routerLink" routerLinkActive="link-active">{{ item.name }}</a>
+        </li>
+      </ul>
+    </div>
+
+    <button class="search-btn" (click)="toggleSearch()">
+      <i [inlineSVG]="'assets/images/svg/ico_search.svg'" class="icon"></i>
+    </button>
+
+  </div>
+</section>
+
+<div class="search-input" [class.active]="isSearchActive">
+  <input type="text" placeholder="search..."  />
+</div>

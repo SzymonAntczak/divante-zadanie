@@ -4,21 +4,26 @@ import { MainNavbarComponent } from './main-navbar/main-navbar.component';
 import { SidebarCartComponent } from './sidebar-cart/sidebar-cart.component';
 import { BaseLayout } from './base.layout';
 import { RouterModule } from '@angular/router';
+import { SharedModule } from '../../../shared/shared.module';
+import { MainFooterComponent } from './main-footer/main-footer.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    SharedModule
   ],
   declarations: [
     BaseLayout,
     MainNavbarComponent,
-    SidebarCartComponent
+    SidebarCartComponent,
+    MainFooterComponent
   ],
   exports: [
     BaseLayout,
     MainNavbarComponent,
-    SidebarCartComponent
+    SidebarCartComponent,
+    MainFooterComponent
   ]
 })
 export class BaseModule { }
