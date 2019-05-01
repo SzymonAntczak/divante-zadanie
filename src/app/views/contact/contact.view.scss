@@ -2,7 +2,10 @@
 
 :host {
   .grid-main-content {
-    grid-template-columns: 0 1fr 72px;
+    grid-template-columns: 0 1fr $desktop-section-gap;
+
+    @include tablet() { grid-template-columns: $tablet-section-gap 1fr $tablet-section-gap; }
+    @include phone() { grid-template-columns: $mobile-section-gap 1fr $mobile-section-gap; }
 
     .container {
       #contact {
@@ -17,6 +20,8 @@
         ul {
           border: 2px dashed color(gray);
           padding: 10px;
+          max-width: 650px;
+          margin: 0 auto;
 
           li {
             &:last-of-type .contact-row { margin-bottom: 0; }
@@ -27,6 +32,15 @@
               span:first-of-type {
                 font-weight: font-weight(bold);
                 margin-right: 5px;
+              }
+
+              a {
+                transition: $time-fastest all;
+
+                &:hover {
+                  text-decoration: none;
+                  color: color(blue);
+                }
               }
             }
           }

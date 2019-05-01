@@ -2,7 +2,10 @@
 
 :host {
   .grid-main-content {
-    grid-template-columns: 0 1fr 72px;
+    grid-template-columns: 0 1fr $desktop-section-gap;
+
+    @include tablet() { grid-template-columns: $tablet-section-gap 1fr $tablet-section-gap; }
+    @include phone() { grid-template-columns: $mobile-section-gap 1fr $mobile-section-gap; }
 
     .container {
       #about {
@@ -16,6 +19,8 @@
 
         p {
           margin-bottom: 15px;
+          max-width: 650px;
+          margin: 0 auto;
         }
       }
     }

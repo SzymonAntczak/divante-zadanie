@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'dvt-sidebar-cart',
@@ -6,10 +6,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar-cart.component.scss']
 })
 export class SidebarCartComponent implements OnInit {
+  private isSidebarCartActive = false;
 
-  constructor() { }
+  constructor(
+    private renderer: Renderer2,
+    private elementRef: ElementRef
+  ) { }
 
   ngOnInit() {
+  }
+
+  public toggleSidebarCart() {
+    this.isSidebarCartActive = this.isSidebarCartActive ? false : true;
+
+    if (this.isSidebarCartActive) {
+      this.renderer.addClass(this.elementRef.nativeElement, 'active');
+    } else {
+      this.renderer.removeClass(this.elementRef.nativeElement, 'active');
+    }
   }
 
 }

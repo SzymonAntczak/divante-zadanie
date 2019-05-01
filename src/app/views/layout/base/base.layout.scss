@@ -5,7 +5,6 @@
   display: grid;
   width: 100%;
   grid-row-gap: $desktop-section-gap;
-  grid-column-gap: 20px;
   overflow-x: hidden;
   grid-template-columns: auto 1fr;
   grid-template-rows: auto 1fr auto;
@@ -14,6 +13,9 @@
     "sidebar-cart router-outlet"
     "main-footer main-footer"
   ;
+
+  @include tablet() { grid-row-gap: $tablet-section-gap; }
+  @include phone() { grid-row-gap: $mobile-section-gap; }
 
   dvt-main-navbar { grid-area: main-navbar; }
   dvt-sidebar-cart { grid-area: sidebar-cart; }

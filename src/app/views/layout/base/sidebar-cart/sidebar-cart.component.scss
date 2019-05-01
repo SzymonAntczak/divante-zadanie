@@ -1,13 +1,30 @@
 @import '../../../../../styles/lib';
 
 :host {
+  @include tablet() {
+    position: fixed;
+    top: 105px;
+    left: -280px;
+    z-index: z-index(workspace-cover);
+    transition: $time-fastest transform;
+
+    &.active { transform: translateX(100%); }
+  }
+
   .grid-main-content {
+    @include tablet() { display: block; }
+
     .container {
       #cart-box {
         background: color(blue);
         max-width: 280px;
         color: color(white);
         padding: 25px;
+        position: relative;
+
+        .icon-cart ::ng-deep {
+          svg { @include size(20px); }
+        }
 
         .header {
           @include flex();
@@ -20,9 +37,8 @@
               svg { @include svg-deep(20px, 20px, white); }
             }
 
-            &.icon-cart ::ng-deep {
+            .icon-cart ::ng-deep {
               svg {
-                @include size(20px);
                 path { stroke: color(white); }
               }
             }
@@ -57,6 +73,26 @@
             }
 
             .item-name { font-weight: font-weight(medium); }
+          }
+        }
+
+        .mobile-btn {
+          position: absolute;
+          top: 0;
+          right: -40px;
+          @include size(40px);
+          background: color(white, 2);
+          outline: none;
+          border: none;
+          box-shadow: 1px 1px 5px 0px color(gray, 1);
+          display: none;
+
+          @include tablet() { display: block; }
+
+          .icon-cart ::ng-deep {
+            svg {
+              path { stroke: color(gray, 3); }
+            }
           }
         }
       }

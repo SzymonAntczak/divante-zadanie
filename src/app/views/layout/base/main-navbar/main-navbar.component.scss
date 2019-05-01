@@ -83,6 +83,9 @@ $navbar-height: 72px;
     bottom: 0;
     transition: $time-fastest transform;
 
+    @include tablet() { right: $tablet-section-gap; }
+    @include phone() { right: $mobile-section-gap; }
+
     input {
       padding: 4px 15px;
       @include size(200px, auto);
