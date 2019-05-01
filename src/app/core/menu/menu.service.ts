@@ -5,10 +5,9 @@ import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable()
 export class MenuService {
-  private menuItems$ = new BehaviorSubject<MenuItem[]>(null);
+  private menuItems$ = new BehaviorSubject<MenuItem[]>(menuData);
 
   constructor() {
-    this.menuItems$.next(menuData);
   }
 
   getMenuItems(): Observable<MenuItem[]> {

@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeView } from './home.view';
 import { SharedModule } from '../../shared/shared.module';
-
-export const HomeViewRouter = { path: '', component: HomeView };
+import { HomeRoutingModule } from './home-routing.module';
 
 @NgModule({
   imports: [
+    HomeRoutingModule,
     CommonModule,
     SharedModule
   ],
@@ -14,4 +14,4 @@ export const HomeViewRouter = { path: '', component: HomeView };
     HomeView
   ]
 })
-export class HomeModule { }
+export class HomeViewModule { }

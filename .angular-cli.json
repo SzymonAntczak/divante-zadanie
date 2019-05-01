@@ -19,7 +19,6 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "dvt",
       "styles": [
-        "../node_modules/css-reset-and-normalize-sass/css/reset-and-normalize.css",
         "styles.scss"
       ],
       "scripts": [],

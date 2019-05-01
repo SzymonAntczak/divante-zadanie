@@ -29,7 +29,8 @@
     "core-js": "^2.4.1",
     "css-reset-and-normalize-sass": "^0.1.2",
     "ng-inline-svg": "^8.4.1",
-    "rxjs": "^5.5.6",
+    "rxjs": "^6.0.0",
+    "rxjs-compat": "^6.5.1",
     "zone.js": "^0.8.19"
   },
   "devDependencies": {
