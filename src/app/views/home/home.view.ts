@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiHomeService } from '../../core/api/api-home/api-home.service';
+import { Product } from '../../core/api/api-home/api-home.model';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'dvt-home',
@@ -6,57 +9,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.view.scss']
 })
 export class HomeView implements OnInit {
-  products = [
-    {
-      id: 'dupa',
-      title: 'Title',
-      description: 'Descriptions',
-      image: {
-        src: 'assets/images/maxresdefault.jpg',
-        alt: 'alt'
-      }
-    },
-    {
-      id: 'dupa',
-      title: 'Title',
-      description: 'Descriptions',
-      image: {
-        src: 'assets/images/maxresdefault.jpg',
-        alt: 'alt'
-      }
-    },
-    {
-      id: 'dupa',
-      title: 'Title',
-      description: 'Descriptions',
-      image: {
-        src: 'assets/images/maxresdefault.jpg',
-        alt: 'alt'
-      }
-    },
-    {
-      id: 'dupa',
-      title: 'Title',
-      description: 'Descriptions',
-      image: {
-        src: 'assets/images/maxresdefault.jpg',
-        alt: 'alt'
-      }
-    },
-    {
-      id: 'dupa',
-      title: 'Title',
-      description: 'Descriptions',
-      image: {
-        src: 'assets/images/maxresdefault.jpg',
-        alt: 'alt'
-      }
-    }
-  ]
+  public products$: Observable<Product[]>;
 
-  constructor() { }
+  constructor(
+    private apiHomeService: ApiHomeService
+  ) { }
 
   ngOnInit() {
+    this.products$ = this.apiHomeService.getProducts();
   }
 
 }

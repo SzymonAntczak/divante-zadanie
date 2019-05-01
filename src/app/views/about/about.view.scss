@@ -1,0 +1,23 @@
+@import '../../../styles/lib';
+
+:host {
+  .grid-main-content {
+    grid-template-columns: 0 1fr 72px;
+
+    .container {
+      #about {
+        text-align: center;
+
+        h1 {
+          margin-bottom: 25px;
+          font-weight: font-weight(bold);
+          text-transform: uppercase;
+        }
+
+        p {
+          margin-bottom: 15px;
+        }
+      }
+    }
+  }
+}

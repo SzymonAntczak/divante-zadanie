@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AboutData } from '../../core/api/api-about/api-about.model';
+import { ApiAboutService } from '../../core/api/api-about/api-about.service';
 
 @Component({
   selector: 'dvt-about',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about.view.scss']
 })
 export class AboutView implements OnInit {
+  public aboutData: AboutData;
 
-  constructor() { }
+  constructor(
+    private apiAboutService: ApiAboutService
+  ) { }
 
   ngOnInit() {
+    this.apiAboutService.getAboutData().subscribe(data => this.aboutData = data).unsubscribe();
   }
 
 }

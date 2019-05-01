@@ -1,3 +1,10 @@
-<p>
-  about-us works!
-</p>
+<section class="grid-main-content">
+  <div class="container">
+
+    <div id="about" *ngIf="aboutData">
+      <h1>{{ aboutData.title }}</h1>
+      <p>{{ aboutData.description }}</p>
+    </div>
+
+  </div>
+</section>

@@ -13,6 +13,11 @@ a {
   &:hover { text-decoration: underline; }
 }
 
+h1 { @include font(headline-1); }
+h2 { @include font(headline-2); }
+h3 { @include font(headline-3); }
+span { @include font(caption-1); }
+
 @each $font in $txt-typography-stack {
   .font-#{$font} {
     @include rwd-font-size($font);

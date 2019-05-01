@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuService } from '../../../../core/menu/menu.service';
-import { MenuItem } from '../../../../core/menu/menu.model';
 import { Observable } from 'rxjs';
+import { ApiMenuService } from '../../../../core/api/api-menu/api-menu.service';
+import { MenuItem } from '../../../../core/api/api-menu/api-menu.model';
 
 @Component({
   selector: 'dvt-main-navbar',
@@ -12,13 +12,13 @@ export class MainNavbarComponent implements OnInit {
   public isSearchActive = false;
   public menuItems$: Observable<MenuItem[]>;
 
-  constructor(private menuService: MenuService) { }
+  constructor(private apiMenuService: ApiMenuService) { }
 
   ngOnInit() {
-    this.menuItems$ = this.menuService.getMenuItems();
+    this.menuItems$ = this.apiMenuService.getMenuItems();
   }
 
-  toggleSearch() {
+  public toggleSearch() {
     this.isSearchActive = this.isSearchActive ? false : true;
   }
 }

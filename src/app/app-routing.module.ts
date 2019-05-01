@@ -6,7 +6,8 @@ const routes: Routes = [
   { path: '', component: BaseLayout,
     children: [
       { path: '', loadChildren: './views/home/home.module#HomeViewModule' },
-      { path: 'about', loadChildren: './views/about/about.module#AboutViewModule' }
+      { path: 'about', loadChildren: './views/about/about.module#AboutViewModule' },
+      { path: 'contact', loadChildren: './views/contact/contact.module#ContactViewModule' }
     ]
   },
 ];
