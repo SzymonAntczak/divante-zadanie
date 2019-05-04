@@ -7,7 +7,8 @@ const routes: Routes = [
     children: [
       { path: '', loadChildren: './views/home/home.module#HomeViewModule' },
       { path: 'about', loadChildren: './views/about/about.module#AboutViewModule' },
-      { path: 'contact', loadChildren: './views/contact/contact.module#ContactViewModule' }
+      { path: 'contact', loadChildren: './views/contact/contact.module#ContactViewModule' },
+      { path: 'product/:id', loadChildren: './views/product/product.module#ProductViewModule' }
     ]
   },
 ];

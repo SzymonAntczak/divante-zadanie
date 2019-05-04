@@ -1,0 +1,66 @@
+@import '../../../styles/lib';
+
+:host {
+  .grid-main-content {
+    grid-template-columns: 0 1fr $desktop-section-gap;
+
+    @include tablet() { grid-template-columns: $tablet-section-gap 1fr $tablet-section-gap; }
+    @include phone() { grid-template-columns: $mobile-section-gap 1fr $mobile-section-gap; }
+
+    .container {
+      position: relative;
+
+      #product {
+        .img-wrapper {
+          @include size(100%, 500px);
+          overflow: hidden;
+
+          @include tablet() { @include size(100%, 350px); }
+
+          img {
+            @include size(100%);
+            object-fit: cover;
+            transition: $time-fast ease-out transform;
+          }
+        }
+
+        .description-box {
+          background: color(blue);
+          padding: 25px 260px 50px 40px;
+          color: color(white);
+          position: relative;
+
+          @include tablet() { padding: 25px 40px; }
+
+          h1 { margin-bottom: 10px; }
+          p { color: color(gray); }
+
+          .btn {
+            background: color(green);
+            border: none;
+            outline: none;
+            padding: 10px;
+            min-width: 180px;
+            position: absolute;
+            top: 50%;
+            right: 40px;
+            transform: translateY(-50%);
+            transition: $time-fastest opacity;
+
+            @include tablet() {
+              position: static;
+              transform: none;
+              margin-top: 25px;
+            }
+
+            &[disabled] { opacity: .8; }
+
+            span { font-weight: font-weight(bold); }
+          }
+        }
+      }
+
+      dvt-loader { min-height: 400px; }
+    }
+  }
+}

@@ -7,17 +7,17 @@
         <span class="title">Contact</span>
       </div>
 
-      <p>Lorem ipsum dolor sit amet. Consectetur adipiscing elit. Nam purus est, placerat sed ante vel, ultrices congue augue.</p>
+      <p>{{ contactDescription }}</p>
 
       <div class="header">
         <i class="icon icon-cart" [inlineSVG]="'assets/images/svg/ico_cart.svg'"></i>
-        <span class="title">Cart (1)</span>
+        <span class="title">Cart {{ '(' + cartItems.length  + ')' }}</span>
       </div>
 
       <div class="cart">
-        <div class="cart-item">
-          <span class="item-id">24</span>
-          <span class="item-name">Top 10 eCommerce trends to follow in 2019</span>
+        <div class="cart-item" *ngFor="let item of cartItems">
+          <span class="item-id">{{ item.id }}</span>
+          <span class="item-name">{{ item.title }}</span>
         </div>
       </div>
 

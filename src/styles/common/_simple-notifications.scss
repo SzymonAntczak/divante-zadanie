@@ -1,0 +1,64 @@
+@import '../lib';
+
+simple-notifications {
+  .simple-notification-wrapper {
+    width: auto;
+    max-width: 600px;
+    z-index: z-index(topLayer);
+    @include flex(column, center, center);
+    text-align: center;
+
+    @include phone { width: 90%; }
+
+    &.top { top: 40px; }
+
+    simple-notification {
+      > .simple-notification {
+        @include flex(row, center, center);
+        min-height: unset;
+        padding: 15px 30px;
+        margin: 10px auto 0;
+        border-radius: 2px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px;
+
+        .sn-title,
+        .icon { display: none; }
+
+        .sn-progress-loader { height: 3px;}
+
+        .sn-content {
+          color: white;
+          font-size: make-rem(14px);
+          text-align: center;
+          padding: 0;
+        }
+
+        &.success {
+          background: nth(map-get($notification-colors-stack, success), 1);
+
+          .sn-progress-loader {
+            span { background:  nth(map-get($notification-colors-stack, success), 2);}
+          }
+        }
+
+        &.error {
+          background: nth(map-get($notification-colors-stack, error), 1);
+
+          .sn-progress-loader {
+            span { background:  nth(map-get($notification-colors-stack, error), 2);}
+          }
+        }
+
+        &.info { background: nth(map-get($notification-colors-stack, info), 1); }
+
+        &.warn {
+          background: nth(map-get($notification-colors-stack, warning), 1);
+
+          .sn-progress-loader {
+            span { background:  nth(map-get($notification-colors-stack, warning), 2);}
+          }
+        }
+      }
+    }
+  }
+}

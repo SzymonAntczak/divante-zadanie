@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiAboutService } from './api-about/api-about.service';
 import { ApiContactService } from './api-contact/api-contact.service';
-import { ApiHomeService } from './api-home/api-home.service';
+import { ApiProductsService } from './api-products/api-products.service';
 import { ApiMenuService } from './api-menu/api-menu.service';
+import { ApiCartService } from './api-cart/api-cart.service';
 
 @NgModule({
   imports: [
@@ -14,8 +15,9 @@ import { ApiMenuService } from './api-menu/api-menu.service';
   providers: [
     ApiAboutService,
     ApiContactService,
-    ApiHomeService,
-    ApiMenuService
+    ApiProductsService,
+    ApiMenuService,
+    ApiCartService
   ]
 })
 export class ApiModule { }

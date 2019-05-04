@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiHomeService } from '../../core/api/api-home/api-home.service';
-import { Product } from '../../core/api/api-home/api-home.model';
+import { ApiProductsService } from '../../core/api/api-products/api-products.service';
+import { Product } from '../../core/api/api-products/api-products.model';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
@@ -12,11 +12,11 @@ export class HomeView implements OnInit {
   public products$: Observable<Product[]>;
 
   constructor(
-    private apiHomeService: ApiHomeService
+    private apiProductsService: ApiProductsService
   ) { }
 
   ngOnInit() {
-    this.products$ = this.apiHomeService.getProducts();
+    setTimeout(() => this.products$ = this.apiProductsService.getProducts(), 400);
   }
 
 }

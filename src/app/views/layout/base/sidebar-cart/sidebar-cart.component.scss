@@ -37,7 +37,7 @@
               svg { @include svg-deep(20px, 20px, white); }
             }
 
-            .icon-cart ::ng-deep {
+            &.icon-cart ::ng-deep {
               svg {
                 path { stroke: color(white); }
               }

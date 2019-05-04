@@ -8,18 +8,18 @@
       <li>
         <div class="contact-row">
           <span>Tel.:</span>
-          <a href="tel:123123123">123123123</a>
+          <a [href]="'tel:' + contactData.telephone">{{ contactData.telephone }}</a>
         </div>
       </li>
       <li>
         <div class="contact-row">
-          <span>Mail:</span>
-          <a href="mailto:jak.nowak@gmail.com">jak.nowak@gmail.com</a>
+          <span>E-mail:</span>
+          <a [href]="'mailto:' + contactData.email">{{ contactData.email }}</a>
         </div>
       </li><li>
         <div class="contact-row">
           <span>Adress:</span>
-          <span>ul. Piękna 35, Wrocław</span>
+          <span>{{ contactData.address }}</span>
         </div>
       </li>
     </ul>

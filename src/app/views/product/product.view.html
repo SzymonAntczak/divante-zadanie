@@ -1,0 +1,25 @@
+<section class="grid-main-content">
+  <div class="container">
+
+    <div id="product" *ngIf="product">
+      <div class="img-wrapper">
+        <img [src]="product.image.src" [alt]="product.image.alt" />
+      </div>
+
+      <div class="description-box">
+        <h1>{{ product.title }}</h1>
+        <p>{{ product.description }}</p>
+        <button
+          class="btn"
+          (click)="addProductToCart(product)"
+          [disabled]="!isButtonActive">
+          <span *ngIf="isButtonActive">Add</span>
+          <span *ngIf="!isButtonActive">Added</span>
+        </button>
+      </div>
+    </div>
+
+    <dvt-loader *ngIf="!product"></dvt-loader>
+
+  </div>
+</section>

@@ -1,0 +1,30 @@
+@import '../../../../styles/lib';
+
+:host {
+  .loader-overlay {
+    @include size(100%);
+    background: color(white);
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    .spinner {
+      @include center();
+      @include size(30px);
+      background: linear-gradient(to left top, color(blue, 2) 0%, color(green) 100%);
+      border-radius: 50%;
+      position: absolute;
+      animation: spinner 2s linear infinite;
+
+      &:before {
+        content: "";
+        @include size(26px);
+        background-color: color(white);
+        border-radius: 50%;
+        position: absolute;
+        top: 2px;
+        left: 2px;
+      }
+    }
+  }
+}

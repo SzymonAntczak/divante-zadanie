@@ -3,16 +3,23 @@
 $navbar-height: 72px;
 
 :host {
-  border-bottom: 1px solid color(gray);
-  position: relative;
+  display: block;
+  height: $navbar-height;
 
   .grid-main-content {
     z-index: z-index(navbar);
     background: color(white, 2);
-    position: relative;
+    border-bottom: 1px solid color(gray);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
 
     .container {
       @include flex(null, null, center);
+      min-height: $navbar-height;
+
+      @include tablet-small() { justify-content: space-between; }
 
       .logo a {
         color: color(gray, 2);
@@ -24,11 +31,35 @@ $navbar-height: 72px;
         flex: 1;
         @include flex(null, flex-end);
 
+        @include tablet-small() {
+          position: absolute;
+          right: 0;
+          top: $navbar-height + 1;
+          background: color(white, 2);
+          flex-direction: column;
+          transform: translateX(100%);
+          transition: $time-fastest transform;
+        }
+
+        &.open { transform: translateX(0); }
+
         ul {
           @include flex();
 
+          @include tablet-small() {
+            flex-direction: column;
+            width: 250px;
+            min-height: 100vh;
+            border-left: 1px solid color(gray);
+          }
+
           li {
             margin: 0 5px;
+
+            @include tablet-small() {
+              width: 100%;
+              margin: 0;
+            }
 
             a {
               padding: 25px 15px;
@@ -37,6 +68,12 @@ $navbar-height: 72px;
               position: relative;
               font-weight: font-weight(bold);
               color: color(gray, 3);
+              transition: $time-fastest background;
+
+              @include tablet-small() {
+                padding: 15px 15px;
+                border-bottom: 1px solid color(gray);
+              }
 
               &::after {
                 content: "";
@@ -47,40 +84,73 @@ $navbar-height: 72px;
                 transform: translateX(-50%) scale(0);
                 background: color(blue);
                 transition: $time-fastest transform;
+
+                @include tablet-small() { display: none; }
               }
 
               &:hover,
               &.link-active {
                 &::after { transform: translateX(-50%) scale(1); }
+
+                @include tablet-small() { background: color(gray); }
               }
+            }
+          }
+        }
+
+        .search-btn {
+          margin-left: 25px;
+          padding: 0;
+          background: color(white, 3);
+          border: none;
+          outline: none;
+          @include flex(null, center, center);
+          @include size($navbar-height);
+
+          .icon ::ng-deep {
+            svg {
+              @include svg-deep(15px, 15px, gray, 3);
+              line, circle { stroke: color(gray, 3); }
             }
           }
         }
       }
 
-      .search-btn {
-        margin-left: 25px;
-        padding: 0;
-        background: color(white, 3);
+      .burger {
+        @include flex(column, space-between);
+        background: none;
         border: none;
-        outline: none;
-        @include flex(null, center, center);
-        @include size($navbar-height);
+        padding: 0;
 
-        .icon ::ng-deep {
-          svg {
-            @include svg-deep(15px, 15px, gray, 3);
-            line, circle { stroke: color(gray, 3); }
+        &.open {
+          span {
+            &:first-of-type { transform: rotate(-45deg) translate(-5px, 5px); }
+
+            &:nth-of-type(2) {
+              transform: translateX(100%);
+              opacity: 0;
+            }
+
+            &:last-of-type { transform: rotate(45deg) translate(-5px, -5px); }
           }
+        }
+
+        span {
+          @include size(22px, 3px);
+          background: color(gray, 2);
+          transition: $time-fastest all;
+
+          &:nth-of-type(2) { margin: 4px 0; }
         }
       }
     }
   }
 
   .search-input {
-    position: absolute;
+    position: fixed;
     right: $desktop-section-gap;
-    bottom: 0;
+    top: $navbar-height;
+    transform: translateY(-100%);
     transition: $time-fastest transform;
 
     @include tablet() { right: $tablet-section-gap; }
@@ -95,7 +165,7 @@ $navbar-height: 72px;
       @include font(caption-1);
     }
 
-    &.active { transform: translateY(100%); }
+    &.active { transform: translateY(0); }
   }
 }
 

@@ -5,21 +5,33 @@
       <a [routerLink]="''">LOGO</a>
     </div>
 
-    <div class="menu">
+    <div class="menu" [class.open]="isMobileMenuOpen">
       <ul *ngIf="menuItems$">
         <li *ngFor="let item of menuItems$ | async">
-          <a [routerLink]="item.routerLink" routerLinkActive="link-active">{{ item.name }}</a>
+          <a
+            [routerLink]="item.routerLink"
+            routerLinkActive="link-active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            (click)="toggleMobileMenu()">
+            {{ item.name }}
+          </a>
         </li>
       </ul>
+
+      <button class="search-btn" (click)="toggleSearch()" *ngIf="!isTabletSmall">
+        <i [inlineSVG]="'assets/images/svg/ico_search.svg'" class="icon"></i>
+      </button>
     </div>
 
-    <button class="search-btn" (click)="toggleSearch()">
-      <i [inlineSVG]="'assets/images/svg/ico_search.svg'" class="icon"></i>
+    <button class="burger" *ngIf="isTabletSmall" [class.open]="isMobileMenuOpen" (click)="toggleMobileMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
     </button>
 
   </div>
 </section>
 
-<div class="search-input" [class.active]="isSearchActive">
+<div class="search-input" [class.active]="isSearchActive" *ngIf="!isTabletSmall">
   <input type="text" placeholder="search..."  />
 </div>

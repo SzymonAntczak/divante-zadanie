@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { Product } from './api-home.model';
+import { Product } from './api-products.model';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
-export class ApiHomeService {
+export class ApiProductsService {
+  private products: Product[];
+  private products$ = new BehaviorSubject<Product[]>(null);
 
-  constructor() { }
-
-  public getProducts(): Observable<Product[]> {
-    return Observable.of([
+  constructor() {
+    this.products = [
       {
         id: 'product-1',
         title: 'Title',
@@ -54,6 +55,15 @@ export class ApiHomeService {
           alt: 'alt'
         }
       }
-    ]);
+    ]
+  }
+
+  public getProducts(): Observable<Product[]> {
+    this.products$.next(this.products);
+    return this.products$.asObservable();
+  }
+
+  public getProductById(productId: string): Observable<Product[]> {
+    return Observable.of(this.products.filter(product => product.id === productId));
   }
 }
