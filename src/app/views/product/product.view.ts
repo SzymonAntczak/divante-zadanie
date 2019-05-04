@@ -26,17 +26,14 @@ export class ProductView implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    setTimeout(() => {
-      this.subscriptions.push(
-        this.route.paramMap.pipe(
-          switchMap(params => {
-            const id = params.get('id');
-            return this.apiProductsService.getProductById(id);
-          })
-        ).subscribe(product => this.product = product[0])
-      );
-    }, 400);
-
+    this.subscriptions.push(
+      this.route.paramMap.pipe(
+        switchMap(params => {
+          const id = params.get('id');
+          return this.apiProductsService.getProductById(id);
+        })
+      ).subscribe(product => this.product = product[0])
+    );
 
     this.subscriptions.push(
       this.apiCartService.watchCartItems().subscribe(items => {
