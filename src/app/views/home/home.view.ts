@@ -16,7 +16,7 @@ export class HomeView implements OnInit {
   ) { }
 
   ngOnInit() {
-    setTimeout(() => this.products$ = this.apiProductsService.getProducts(), 400);
+    this.products$ = this.apiProductsService.getProducts();
   }
 
 }

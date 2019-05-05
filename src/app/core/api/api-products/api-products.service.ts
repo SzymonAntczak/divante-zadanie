@@ -1,69 +1,24 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Product } from './api-products.model';
-import { BehaviorSubject } from 'rxjs';
+import { api } from '../api-common.model';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class ApiProductsService {
-  private products: Product[];
-  private products$ = new BehaviorSubject<Product[]>(null);
 
-  constructor() {
-    this.products = [
-      {
-        id: 'product-1',
-        title: 'Title',
-        description: 'Descriptions',
-        image: {
-          src: 'assets/images/maxresdefault.jpg',
-          alt: 'alt'
-        }
-      },
-      {
-        id: 'product-2',
-        title: 'Title',
-        description: 'Descriptions',
-        image: {
-          src: 'assets/images/maxresdefault.jpg',
-          alt: 'alt'
-        }
-      },
-      {
-        id: 'product-3',
-        title: 'Title',
-        description: 'Descriptions',
-        image: {
-          src: 'assets/images/maxresdefault.jpg',
-          alt: 'alt'
-        }
-      },
-      {
-        id: 'product-4',
-        title: 'Title',
-        description: 'Descriptions',
-        image: {
-          src: 'assets/images/maxresdefault.jpg',
-          alt: 'alt'
-        }
-      },
-      {
-        id: 'product-5',
-        title: 'Title',
-        description: 'Descriptions',
-        image: {
-          src: 'assets/images/maxresdefault.jpg',
-          alt: 'alt'
-        }
-      }
-    ]
-  }
+  constructor(private http: HttpClient) { }
 
   public getProducts(): Observable<Product[]> {
-    this.products$.next(this.products);
-    return this.products$.asObservable();
+    return this.http.get<Product[]>(`${api}/products`);
   }
 
   public getProductById(productId: string): Observable<Product[]> {
-    return Observable.of(this.products.filter(product => product.id === productId));
+    return this.http.get<Product[]>(`${api}/products`).pipe(
+      map(products => products.filter(product => product.id === productId))
+    );
   }
 }
+
+

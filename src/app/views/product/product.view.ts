@@ -16,7 +16,7 @@ export class ProductView implements OnInit, OnDestroy {
   public product: Product;
   public isButtonActive: boolean;
 
-  private subscriptions: Subscription[] = [];
+  private subscription: Subscription;
 
   constructor(
     private apiCartService: ApiCartService,
@@ -26,21 +26,19 @@ export class ProductView implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    this.subscriptions.push(
-      this.route.paramMap.pipe(
-        switchMap(params => {
-          const id = params.get('id');
-          return this.apiProductsService.getProductById(id);
-        })
-      ).subscribe(product => this.product = product[0])
-    );
+    this.subscription = this.route.paramMap.pipe(
+      switchMap(params => {
+        const id = params.get('id');
+        return this.apiProductsService.getProductById(id);
+      })
+    ).subscribe(product => {
+      this.product = product[0];
 
-    this.subscriptions.push(
       this.apiCartService.watchCartItems().subscribe(items => {
         const isItemAdded = !!items.find(item => item.id === this.product.id);
         this.isButtonActive = isItemAdded ? false : true;
       })
-    );
+    })
   }
 
   public addProductToCart(product: Product) {
@@ -49,7 +47,7 @@ export class ProductView implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.subscriptions.forEach(subscription => subscription.unsubscribe());
+    this.subscription.unsubscribe();
   }
 
 }
