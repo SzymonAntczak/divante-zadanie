@@ -11,11 +11,11 @@ export class ApiProductsService {
   constructor(private http: HttpClient) { }
 
   public getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(`${api}/products`);
+    return this.http.get(`${api}/products`);
   }
 
   public getProductById(productId: string): Observable<Product[]> {
-    return this.http.get<Product[]>(`${api}/products`).pipe(
+    return this.http.get(`${api}/products`).pipe(
       map(products => products.filter(product => product.id === productId))
     );
   }
