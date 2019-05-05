@@ -3,4 +3,4 @@ Uruchomienie projektu:
 2. npm run start
 
 Budowanie projektu:
-1.v npm run build
+1. npm run build
